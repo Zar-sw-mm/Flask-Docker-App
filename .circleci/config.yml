@@ -1,0 +1,17 @@
+version: 2.1
+orbs:
+  node: circleci/python@3.2.0
+  dockeer: circleci/docker@2.1.4
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.21
+    steps:
+      - checkout
+      - run:
+          command: pip install -r requirements.txt
+workflows:
+  version: 2.1
+  dev_workflow:
+    jobs:
+      - build

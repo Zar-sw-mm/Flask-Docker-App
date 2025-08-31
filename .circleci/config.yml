@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/python@3.2.0
-  dockeer: circleci/docker@2.1.4
+  docker: circleci/docker@2.1.4
 jobs:
   build:
     docker:
@@ -16,7 +16,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - docker/check
-      - dokcer/build:
+      - docker/build:
           image: zarni009/flaskdockerapp
           tag: << pipeline.git.revision >>,1.1.0
       - docker/push:

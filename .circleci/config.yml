@@ -26,7 +26,13 @@ workflows:
   version: 2.1
   dev_workflow:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only: main
       - publish:
           requires:
             - build
+          filters:
+            branches:
+              only: release
